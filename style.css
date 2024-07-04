@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Margarine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Bebas+Neue&family=Stick+No+Bills&family=Amatic+SC:wght@700&family=DM+Mono:wght@300;400;500&display=swap");
+/* Fonts:
+font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Stick No Bills', sans-serif;
+font-family: 'Amatic SC', sans-serif;
+font-family: "Margarine", sans-serif;
+*/
+
+* {
+  font-family: "Margarine", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  min-height: 100vh;
+  font-family: "Barlow Condensed", sans-serif;
+  text-align: center;
+  background: coral;
+}
+
+.container {
+  background-color: wheat;
+  border-radius: 1rem;
+  max-width: 600px;
+  min-height: 400px;
+  padding: 20px 40px;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  max-width: 1000px;
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid whitesmoke;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: transform 0.3s, border-color 0.5s;
+}
+
+input[type="text"]:focus {
+  border-color: coral;
+  transform: scale(1.03);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: coral;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+button:hover {
+  background-color: darkorange;
+  transform: scale(1.05);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  background-color: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .input {
+    flex-direction: column;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
