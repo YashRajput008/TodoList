@@ -1,5 +1,6 @@
 function addTask() {
   let task = document.getElementById("taskInput").value.trim();
+  let date = document.getElementById("dateInput").value.trim();
   let list = document.getElementById("taskList");
   console.log(task);
 
@@ -11,8 +12,9 @@ function addTask() {
 
   let li = document.createElement("li");
   li.innerHTML = `
-      ${task}
-      <button onclick="deleteTask(this)"> Delete </button>
+      <span>${task}</span>
+      <span>${date}</span>
+      <button onclick="deleteTask(this)" class="normal-btn"> Delete </button>
     `;
 
   li.onclick = function () {
@@ -21,9 +23,24 @@ function addTask() {
 
   list.appendChild(li);
   document.getElementById("taskInput").value = "";
+  document.getElementById("dateInput").value = "";
+
+  let calendarBtn = document.querySelector(".calendar-btn");
+  document.getElementById("dateInput").style.display = "none";
+  calendarBtn.style.display = "block";
 }
 
 function deleteTask(button) {
-  const li = button.parentElement;
+  let li = button.parentElement;
   li.remove();
+}
+
+function showCalendar() {
+  let date = document.getElementById("dateInput");
+  let calendarBtn = document.querySelector(".calendar-btn");
+  console.log(date);
+
+  calendarBtn.style.display = "none";
+  date.style.display = "block";
+  date.focus();
 }

@@ -13,7 +13,17 @@
 
       <div class="input">
         <input type="text" id="taskInput" placeholder="Add a new task" />
-        <button onclick="addTask()" class="add" id="add">Add</button>
+        <button onclick="addTask()" class="add normal-btn" id="add">Add</button>
+
+        <button onclick="showCalendar()" class="calendar-btn">
+          <img
+            src="assets/calendar-icon.png"
+            alt="Calendar"
+            width="20"
+            height="20"
+          />
+        </button>
+        <input type="date" id="dateInput" class="date-picker" />
       </div>
 
       <ul class="task" id="taskList"></ul>
