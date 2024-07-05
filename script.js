@@ -44,3 +44,10 @@ function showCalendar() {
   date.style.display = "block";
   date.focus();
 }
+
+document.getElementById("taskInput").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+    console.log("Task Entered");
+  }
+});
