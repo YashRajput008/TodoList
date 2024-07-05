@@ -13,6 +13,11 @@
 
       <div class="input">
         <input type="text" id="taskInput" placeholder="Add a new task" />
+        <select id="task-priority">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+      </select>
         <button onclick="addTask()" class="add normal-btn" id="add">Add</button>
 
         <button onclick="showCalendar()" class="calendar-btn">
@@ -24,7 +29,6 @@
           />
         </button>
         <input type="date" id="dateInput" class="date-picker" />
-      </div>
 
       <ul class="task" id="taskList"></ul>
     </div>
