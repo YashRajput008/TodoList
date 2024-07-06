@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
   font-family: "Barlow Condensed", sans-serif;
   text-align: center;
-  background: coral;
+  background: linear-gradient(coral, rgb(255, 224, 124));
 }
 .container {
   background-color: wheat;
@@ -172,7 +172,7 @@ li.high {
 }
 
 body.dark-mode {
-  background: #2c2c2c;
+  background: linear-gradient(black, rgb(16, 23, 47));
   color: #ffffff;
 }
 
