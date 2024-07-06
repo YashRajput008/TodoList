@@ -12,6 +12,7 @@ function addTask() {
 
   let li = document.createElement("li");
   li.innerHTML = `
+
       <span>${task}</span>
       <span>${date}</span>
       <button onclick="deleteTask(this)" class="normal-btn"> Delete </button>
@@ -51,3 +52,7 @@ document.getElementById("taskInput").addEventListener("keydown", (e) => {
     console.log("Task Entered");
   }
 });
+
+function mode() {
+  document.body.classList.toggle("dark-mode");
+}
