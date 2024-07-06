@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Margarine&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Bebas+Neue&family=Stick+No+Bills&family=Amatic+SC:wght@700&family=DM+Mono:wght@300;400;500&display=swap");
-/* Fonts:
-font-family: 'Barlow Condensed', sans-serif;
-font-family: 'Bebas Neue', sans-serif;
-font-family: 'Stick No Bills', sans-serif;
-font-family: 'Amatic SC', sans-serif;
-font-family: "Margarine", sans-serif;
-*/
 
 * {
   font-family: "Margarine", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --bgc: linear-gradient(coral, rgb(234, 190, 87));
+  --text-color: black;
+  --transition-delay: 1s;
+
+  --btn-border-clr: (48, 69, 130);
+  --text-color: black;
 }
 
 body {
@@ -23,7 +25,20 @@ body {
   min-height: 100vh;
   font-family: "Barlow Condensed", sans-serif;
   text-align: center;
-  background: linear-gradient(coral, yellow);
+  background: var(--bgc);
+  transition: background-color 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  transition: var(--transition-delay);
+  background-color: var(--bgc);
+  color: var(--text-color);
+}
+
+body.dark {
+  --bgc: linear-gradient(black, rgb(48, 69, 130));
+  --text-color: white;
+  --btn-border-clr: orangered;
 }
 
 .container {
@@ -36,11 +51,13 @@ body {
   position: relative;
   margin-top: 50px;
   box-shadow: 0px 4px 8px #0000000a;
+  z-index: 1;
 }
 
 .title {
   font-size: 60px;
   margin-bottom: 10px;
+  color: black;
 }
 
 .input {
@@ -130,67 +147,46 @@ li.completed {
   color: gray;
 }
 
-body.dark-mode {
-  background: linear-gradient(black, royalblue);
-  color: #e0e0e0;
-}
-
-.dark-mode li {
-  background-color: #333;
-  color: #e0e0e0;
-}
-
-.dark-mode .high-priority {
-  background-color: #ff6666;
-}
-
-.dark-mode .medium-priority {
-  background-color: #ffeb3b;
-  color: #000;
-}
-
-.dark-mode .low-priority {
-  background-color: #66bb6a;
-}
-
-.dark-mode .gear-icon {
-  color: #e0e0e0;
-}
-
-li {
-  position: relative;
-  padding-right: 30px;
-}
-
-.gear-icon {
+.mode-toggle {
   display: none;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar .mode-toggle {
+  display: block;
+  margin: 20px auto;
+  background: none;
+  color: white;
   cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  border: var(--btn-border-clr);
+  border-style: dashed;
+  transition: 0.5s;
+  transform: scale(1);
 }
 
-li:hover .gear-icon {
-  display: inline;
+.sidebar .mode-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 30px;
-  }
-
-  .input {
-    flex-direction: column;
-  }
-
-  input[type="text"] {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .normal-btn {
-    width: 100%;
-    margin-left: 0;
-  }
+/* Sidebar toggle button */
+.sidebar-toggle {
+  font-size: 30px;
+  cursor: pointer;
+  background-color: transparent;
 }

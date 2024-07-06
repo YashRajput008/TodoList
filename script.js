@@ -2,21 +2,18 @@ function addTask() {
   let task = document.getElementById("taskInput").value.trim();
   let date = document.getElementById("dateInput").value.trim();
   let list = document.getElementById("taskList");
-  console.log(task);
 
   if (task === "") {
     alert("Please enter a task.");
-    console.log("Please enter a task.");
     return;
   }
 
   let li = document.createElement("li");
   li.innerHTML = `
-
-      <span>${task}</span>
-      <span>${date}</span>
-      <button onclick="deleteTask(this)" class="normal-btn"> Delete </button>
-    `;
+    <span>${task}</span>
+    <span>${date}</span>
+    <button onclick="deleteTask(this)" class="normal-btn">Delete</button>
+  `;
 
   li.onclick = function () {
     li.classList.toggle("completed");
@@ -39,8 +36,6 @@ function deleteTask(button) {
 function showCalendar() {
   let date = document.getElementById("dateInput");
   let calendarBtn = document.querySelector(".calendar-btn");
-  console.log(date);
-
   calendarBtn.style.display = "none";
   date.style.display = "block";
   date.focus();
@@ -49,10 +44,20 @@ function showCalendar() {
 document.getElementById("taskInput").addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     addTask();
-    console.log("Task Entered");
   }
 });
 
-function mode() {
-  document.body.classList.toggle("dark-mode");
+document
+  .querySelector(".sidebar .mode-toggle")
+  .addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+
+function toggleSidebar() {
+  let sidebar = document.getElementById("sidebar");
+  if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+    sidebar.style.width = "250px";
+  } else {
+    sidebar.style.width = "0";
+  }
 }
