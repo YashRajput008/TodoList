@@ -10,23 +10,26 @@
   <body>
     <div class="container">
       <div class="title">TO-DO LIST</div>
-
-      <div class="input">
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+      <div class="input-group">
         <input type="text" id="taskInput" placeholder="Add a new task" />
-        <button onclick="addTask()" class="add normal-btn" id="add">Add</button>
-
-        <button onclick="showCalendar()" class="calendar-btn">
+        <select id="priorityInput">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button class="calendar-btn" onclick="showCalendar()">
           <img
             src="assets/calendar-icon.png"
             alt="Calendar"
-            width="20"
-            height="20"
+            width="15"
+            height="15"
           />
         </button>
         <input type="date" id="dateInput" class="date-picker" />
+        <button onclick="addTask()" class="add-btn">Add</button>
       </div>
-
-      <ul class="task" id="taskList"></ul>
+      <ul class="task-list" id="taskList"></ul>
     </div>
     <script src="script.js"></script>
   </body>

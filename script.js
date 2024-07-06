@@ -1,21 +1,31 @@
+document
+  .getElementById("taskInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addTask();
+    }
+  });
+
 function addTask() {
   let task = document.getElementById("taskInput").value.trim();
   let date = document.getElementById("dateInput").value.trim();
+  let priority = document.getElementById("priorityInput").value;
   let list = document.getElementById("taskList");
-  console.log(task);
 
   if (task === "") {
     alert("Please enter a task.");
-    console.log("Please enter a task.");
     return;
   }
 
   let li = document.createElement("li");
+  li.className = priority;
   li.innerHTML = `
-      <span>${task}</span>
-      <span>${date}</span>
-      <button onclick="deleteTask(this)" class="normal-btn"> Delete </button>
-    `;
+    <div>${task}</div>
+    <div>${date}</div>
+    <div>${priority}</div>
+    <button onclick="deleteTask(this)">Delete</button>
+  `;
 
   li.onclick = function () {
     li.classList.toggle("completed");
@@ -24,10 +34,7 @@ function addTask() {
   list.appendChild(li);
   document.getElementById("taskInput").value = "";
   document.getElementById("dateInput").value = "";
-
-  let calendarBtn = document.querySelector(".calendar-btn");
-  document.getElementById("dateInput").style.display = "none";
-  calendarBtn.style.display = "block";
+  document.getElementById("priorityInput").value = "low";
 }
 
 function deleteTask(button) {
@@ -36,18 +43,13 @@ function deleteTask(button) {
 }
 
 function showCalendar() {
-  let date = document.getElementById("dateInput");
-  let calendarBtn = document.querySelector(".calendar-btn");
-  console.log(date);
-
-  calendarBtn.style.display = "none";
-  date.style.display = "block";
-  date.focus();
+  let dateInput = document.getElementById("dateInput");
+  dateInput.style.display = "block";
+  dateInput.focus();
 }
 
-document.getElementById("taskInput").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    addTask();
-    console.log("Task Entered");
-  }
-});
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+
+  document.getElementsByClassName("dark-mode-toggle").innertext = "☀️";
+}
