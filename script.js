@@ -40,24 +40,3 @@ function showCalendar() {
   date.style.display = "block";
   date.focus();
 }
-
-document.getElementById("taskInput").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    addTask();
-  }
-});
-
-document
-  .querySelector(".sidebar .mode-toggle")
-  .addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
-
-function toggleSidebar() {
-  let sidebar = document.getElementById("sidebar");
-  if (sidebar.style.width === "0px" || sidebar.style.width === "") {
-    sidebar.style.width = "250px";
-  } else {
-    sidebar.style.width = "0";
-  }
-}
