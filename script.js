@@ -51,5 +51,10 @@ function showCalendar() {
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 
-  document.getElementsByClassName("dark-mode-toggle").innertext = "☀️";
+  const toggleButton = document.querySelector(".dark-mode-toggle");
+  if (document.body.classList.contains("dark-mode")) {
+    toggleButton.textContent = "☀️";
+  } else {
+    toggleButton.textContent = "🌙";
+  }
 }
