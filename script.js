@@ -44,8 +44,13 @@ function deleteTask(button) {
 
 function showCalendar() {
   let dateInput = document.getElementById("dateInput");
-  dateInput.style.display = "block";
-  dateInput.focus();
+
+  if (dateInput.style.display === "block") {
+    dateInput.style.display = "none";
+  } else {
+    dateInput.style.display = "block";
+    dateInput.focus();
+  }
 }
 
 function toggleDarkMode() {
